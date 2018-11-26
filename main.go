@@ -6,8 +6,15 @@ import (
 )
 
 func main(){
-	r := gin.Default()
-	r.LoadHTMLGlob("views/*")
-	r.GET("/",route.Home)
-	r.Run(":80")
+	engine := gin.Default()
+	engine.LoadHTMLGlob("web/views/*")
+	engine.Static("/resource","web/resource")
+
+	setupRouter(engine)
+
+	engine.Run(":80")
+}
+
+func setupRouter(engine *gin.Engine){
+	engine.GET("/",route.Home)
 }
