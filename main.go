@@ -12,7 +12,7 @@ func main(){
 
 	setupRouter(engine)
 
-	engine.Run(":8080")
+	engine.Run(":443")
 }
 
 func setupRouter(engine *gin.Engine){
